@@ -35,8 +35,22 @@ export function useFormValidation(config: FormConfig) {
         fields[fieldName].touched = true
         
     }
+
+    const validateForm = () => {
+        for (const fieldName of Object.keys(config)) {
+            validateField(fieldName)
+        }
+    }
+
+    const isFormValid = computed(() => {
+        return Object.values(fields).every(field => field.isValid)
+    })
+
+
     return {
         fields,
-        validateField
+        validateField,
+        validateForm, 
+        isFormValid
     }
 }

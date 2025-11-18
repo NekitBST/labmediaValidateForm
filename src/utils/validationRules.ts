@@ -16,8 +16,7 @@ export const minLength = (min: number): ValidationRule => {
 };
 
 export const numeric: ValidationRule = (value) => {
-    const isNumber = !isNaN(Number(value));
-    return isNumber || "Только цифры";
+    return /^\d+$/.test(value) || 'Только цифры';
 }
 
 export const ageRange: ValidationRule = (value) => {
@@ -35,5 +34,6 @@ export const ageRange: ValidationRule = (value) => {
 };
 
 export const name: ValidationRule = (value) => {
-  return value.length >= 2 || 'Минимум 2 символа'
+    const regex = /^[a-zA-Zа-яА-ЯёЁ\s-]+$/;
+    return regex.test(value) || 'Только буквы, пробелы, дефисы';
 }
