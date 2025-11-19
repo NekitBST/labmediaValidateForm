@@ -12,5 +12,4 @@ export interface HttpState<T = any> {
     isLoading: boolean
     isSuccess: boolean
     isError: boolean
-    error: string | null
 }

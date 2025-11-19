@@ -1,6 +1,6 @@
 
 import { reactive, computed } from 'vue'
-import type { FormConfig, FormFields, FieldState, ValidationRule } from '@/types/validation'
+import type { FormConfig, FormFields, FieldState } from '@/types/validation'
 
 export function useFormValidation(config: FormConfig) {
     
